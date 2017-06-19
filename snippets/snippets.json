@@ -1,0 +1,332 @@
+{
+	"authfire": {
+		"prefix": "authfire",
+		"body": "${1:ref}.auth(${2:authToken}, function(error, ${3:result}) {\n  if(error) {\n    ${4: /* handle error */}\n  } else {\n    ${0: /* do something */}\n  }\n});",
+		"description": "Authenticate Client",
+		"scope": "source.js"
+	},
+	"authFireAnonymously": {
+		"prefix": "authFireAnonymously",
+		"body": "${1:ref}.authAnonymously(function(error, authData) {\n  if(error) {\n    ${2: /* handle error */}\n  }\n}, ${3:options});",
+		"description": "Custom firebase Auth Token",
+		"scope": "source.js"
+	},
+	"fireAuthCustom": {
+		"prefix": "fireAuthCustom",
+		"body": "${1:ref}.authWithCustomToken(${2:authToken}, function(error, authData) {\n  if(error) {\n    ${3: /* handle error */}\n  }\n}, ${4:options});",
+		"description": "Custom firebase Auth Token",
+		"scope": "source.js"
+	},
+	"authFirePassword": {
+		"prefix": "authFirePassword",
+		"body": "${1:ref}.authWithPassword( ${2:credentials}, function(error, authData) {\n  if(error) {\n    ${3: /* handle error */}\n  }\n}, ${4:options});",
+		"description": "Firebase password auth",
+		"scope": "source.js"
+	},
+	"cancelfire": {
+		"prefix": "cancelfire",
+		"body": "${1:ref}.onDisconnect().cancel(${0:/* onComplete */});\n",
+		"description": "cancel events",
+		"scope": "source.js"
+	},
+	"changeemailfire": {
+		"prefix": "changeemailfire",
+		"body": "${1:ref}.changePassword({\n  newEmail: ${2:\"bobtony@firebase.com\"},\n  oldEmail: ${3:\"bobtony@google.com\"},\n  Password: ${4:\"correcthorsebatterystaple\"}\n}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_PASSWORD\":\n        console.log(\"The specified user account password is incorrect.\");\n        break;\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      default:\n        console.log(\"Error creating user:\", error);\n    }\n  } else {\n    console.log(\"User email changed successfully!\");\n    ${5: // success}\n  }\n  });",
+		"description": "change email",
+		"scope": "source.js"
+	},
+	"changepassfire": {
+		"prefix": "changepassfire",
+		"body": "${1:ref}.changePassword({\n  email: ${2:\"bobtony@firebase.com\"},\n  oldPassword: ${3:\"correcthorsebatterystaple\"},\n  newPassword: ${4:\"shinynewpassword\"}\n}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_PASSWORD\":\n        console.log(\"The specified user account password is incorrect.\");\n        break;\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      default:\n        console.log(\"Error changing password:\", error);\n    }\n  } else {\n    console.log(\"User password changed successfully!\");\n    ${5: // success}\n  }\n  });",
+		"description": "change password",
+		"scope": "source.js"
+	},
+	"childfire": {
+		"prefix": "childfire",
+		"body": "${1:dataRef}.child(${0:'childPath'});",
+		"description": "Firebase ref of child",
+		"scope": "source.js"
+	},
+	"createuserfire": {
+		"prefix": "createuserfire",
+		"body": "${1:ref}.createUser(${2:/* credentials */}, function(error, userData) {\n  if (error) {\n    switch (error.code) {\n      case \"EMAIL_TAKEN\":\n        console.log(\"The new user account cannot be created because the email is already in use.\");\n        break;\n      case \"INVALID_EMAIL\":\n        console.log(\"The specified email is not a valid email.\");\n        break;\n      default:\n        console.log(\"Error creating user:\", error);\n    }\n  } else {\n    console.log(\"Successfully created user account with uid:\", userData.uid);\n    ${3: // do things}\n  }\n  });",
+		"description": "create user acct",
+		"scope": "source.js"
+	},
+	"endatfire": {
+		"prefix": "endatfire",
+		"body": "endAt(${2:/* end point */})",
+		"description": "limit w/ end",
+		"scope": "source.js"
+	},
+	"equaltofire": {
+		"prefix": "equaltofire",
+		"body": "${1:ref}.equalTo(${2: value} ,${0:key /* optional */});\n // endat deprecated use limitToFirst ",
+		"description": "firebase equalto",
+		"scope": "source.js"
+	},
+	"exportValfire": {
+		"prefix": "exportValfire",
+		"body": "${1:dataSnapshot}.exportVal();",
+		"description": "export snapshot",
+		"scope": "source.js"
+	},
+	"forEachfire": {
+		"prefix": "forEachfire",
+		"body": "${1:dataSnapshot}.forEach( ${0:childSnapshot} );",
+		"description": "snapshot forEach child",
+		"scope": "source.js"
+	},
+	"getAuthFire": {
+		"prefix": "getAuthFire",
+		"body": "${1:ref}.getAuth();",
+		"description": "synchronous auth package",
+		"scope": "source.js"
+	},
+	"getPriorityfire": {
+		"prefix": "getPriorityfire",
+		"body": "${1:dataSnapshot}.getPriority();",
+		"description": "priority of snapshot",
+		"scope": "source.js"
+	},
+	"goofflinefire": {
+		"prefix": "goofflinefire",
+		"body": "Firebase.goOffline();",
+		"description": "manual disconnect from firebase",
+		"scope": "source.js"
+	},
+	"goonlinefire": {
+		"prefix": "goonlinefire",
+		"body": "Firebase.goOnline();",
+		"description": "manual connect to firebase",
+		"scope": "source.js"
+	},
+	"hasChildfire": {
+		"prefix": "hasChildfire",
+		"body": "${1:dataSnapshot}.hasChild( ${0:childPath} );",
+		"description": "true if child",
+		"scope": "source.js"
+	},
+	"hasChildrenfire": {
+		"prefix": "hasChildrenfire",
+		"body": "${1:dataSnapshot}.hasChildren();",
+		"description": "true if children",
+		"scope": "source.js"
+	},
+	"keyfire": {
+		"prefix": "keyfire",
+		"body": "${1:dataRef}.key();",
+		"description": "Last token of location",
+		"scope": "source.js"
+	},
+	"limitEndfire": {
+		"prefix": "limitEndfire",
+		"body": "${1:ref}.endAt(${2:/* end point */}).limit(${0:limitNumber});\n // endat deprecated use limitToFirst ",
+		"description": "limit w/ end",
+		"scope": "source.js"
+	},
+	"limitstartfire": {
+		"prefix": "limitstartfire",
+		"body": "${1:ref}.startAt(${2:/* start point */}).limit(${0:limitNumber});\n// startAt deprecated use limitToLast",
+		"description": "limit a ref",
+		"scope": "source.js"
+	},
+	"limitfire": {
+		"prefix": "limitfire",
+		"body": "${1:ref}.limit(${0:limitNumber}); //.limit deprecated use limitToFirst and limitToLast instead ",
+		"description": "limit a ref",
+		"scope": "source.js"
+	},
+	"limittofirstfire": {
+		"prefix": "limittofirstfire",
+		"body": "${1:ref}.limitToFirst(${2:/* max # of nodes to include in query */}));\n",
+		"description": "limit to first x children",
+		"scope": "source.js"
+	},
+	"limittolastfire": {
+		"prefix": "limittolastfire",
+		"body": "limitToLast(${0:limitNumber});",
+		"description": "limit a ref",
+		"scope": "source.js"
+	},
+	"namefire": {
+		"prefix": "namefire",
+		"body": "${1:dataRef}.name(); //.name() is deprecated use .key() instead",
+		"description": "Last token of location",
+		"scope": "source.js"
+	},
+	"newfire": {
+		"prefix": "newfire",
+		"body": "var ${1:ref} = new Firebase('${0:url}');",
+		"description": "New Firebase Ref",
+		"scope": "source.js"
+	},
+	"numChildrenfire": {
+		"prefix": "numChildrenfire",
+		"body": "${1:dataSnapshot}.numChildren();",
+		"description": "integer of children",
+		"scope": "source.js"
+	},
+	"oauthFirePopup": {
+		"prefix": "oauthFirePopup",
+		"body": "${1:ref}.authWithOAuthPopup( ${2:provider}, function(error, authData) {\n  if(error) {\n    ${3: /* handle error */}\n  }\n}, ${4:options});",
+		"description": "Firebase OAuth popup",
+		"scope": "source.js"
+	},
+	"oauthFireRedirect": {
+		"prefix": "oauthFireRedirect",
+		"body": "${1:ref}.authWithOAuthRedirect( ${2:provider}, function(error, authData) {\n  if(error) {\n    ${3: /* handle error */}\n  }\n}, ${4:options});",
+		"description": "Firebase OAuth redirect",
+		"scope": "source.js"
+	},
+	"oauthFireToken": {
+		"prefix": "oauthFireToken",
+		"body": "${1:ref}.authWithOAuthToken( ${2:provider}, ${3:credentials}, function(error, authData) {\n  if(error) {\n    ${4: /* handle error */}\n  }\n}, ${5:options});",
+		"description": "Firebase OAuth w/ token",
+		"scope": "source.js"
+	},
+	"offfire": {
+		"prefix": "offfire",
+		"body": "${1:ref}.off( ${2:/* eventType */}, ${3: /* dataSnapshot */}, ${0: /* context */} );\n",
+		"description": "stop data read",
+		"scope": "source.js"
+	},
+	"offauthFire": {
+		"prefix": "offauthFire",
+		"body": "${1:ref}.offAuth(${0:functionToDetach}, ${2:context /* optional */});",
+		"description": "detach onAuth callback",
+		"scope": "source.js"
+	},
+	"onfire": {
+		"prefix": "onfire",
+		"body": "${1:ref}.on(${2: eventType}, ${3:function(dataSnapshot)}, ${4:/* cancelCallback */}, ${0:/* context */} );\n",
+		"description": "read data",
+		"scope": "source.js"
+	},
+	"onauthFire": {
+		"prefix": "onauthFire",
+		"body": "${1:ref}.onAuth(function(authData) {\n    ${0: // handle authData }\n}, ${2:context /* optional */});",
+		"description": "firebase auth event",
+		"scope": "source.js"
+	},
+	"oncefire": {
+		"prefix": "oncefire",
+		"body": "${1:ref}.once(${2: eventType}, function(${3:dataSnapshot}) { ${0: /* handle read data */} });",
+		"description": "firebase once",
+		"scope": "source.js"
+	},
+	"orderbychildfire": {
+		"prefix": "orderbychildfire",
+		"body": "${1:ref}.orderByChild( \"${2:childName}\")",
+		"description": "order query by child name",
+		"scope": "source.js"
+	},
+	"orderbykeyfire": {
+		"prefix": "orderbykeyfire",
+		"body": "${1:ref}.orderByKey())",
+		"description": "order query by key",
+		"scope": "source.js"
+	},
+	"orderbyvaluefire": {
+		"prefix": "orderbyvaluefire",
+		"body": "${1:ref}.orderByPriority()",
+		"description": "order query by priority",
+		"scope": "source.js"
+	},
+	"orderbyvaluefire1": {
+		"prefix": "orderbyvaluefire",
+		"body": "${1:ref}.orderByValue()",
+		"description": "order query by value",
+		"scope": "source.js"
+	},
+	"parentfire": {
+		"prefix": "parentfire",
+		"body": "${1:dataRef}.parent();",
+		"description": "Firebase ref of parent",
+		"scope": "source.js"
+	},
+	"pushfire": {
+		"prefix": "pushfire",
+		"body": "${1:ref}.push(${2: value }, ${0:/* onComplete */});",
+		"description": "push at ref",
+		"scope": "source.js"
+	},
+	"reffire": {
+		"prefix": "reffire",
+		"body": "${1:dataSnapshot}.ref();",
+		"description": "ref location for data",
+		"scope": "source.js"
+	},
+	"removefire": {
+		"prefix": "removefire",
+		"body": "${1:ref}.remove(${0:/* onComplete */});",
+		"description": "remove at ref",
+		"scope": "source.js"
+	},
+	"removeuserfire": {
+		"prefix": "removeuserfire",
+		"body": "${1:ref}.removeUser(${2:/* credentials */}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      case \"INVALID_PASSWORD\":\n        console.log(\"The specified user account password is incorrect.\");\n        break;\n      default:\n        console.log(\"Error removing user:\", error);\n    }\n  } else {\n    console.log(\"User account deleted successfully!\");\n    ${3: //success }\n  });",
+		"description": "remove user",
+		"scope": "source.js"
+	},
+	"resetpassfire": {
+		"prefix": "resetpassfire",
+		"body": "${1:ref}.resetPassword({\n  email: ${2:\"bobtony@firebase.com\"},\n}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      default:\n        console.log(\"Error resetting password:\", error);\n    }\n  } else {\n    console.log(\"Password reset email sent successfully!\");\n    ${5: // success}\n  }\n  });",
+		"description": "reset password",
+		"scope": "source.js"
+	},
+	"rootfire": {
+		"prefix": "rootfire",
+		"body": "${1:dataRef}.root();",
+		"description": "Root of firebase",
+		"scope": "source.js"
+	},
+	"setfire": {
+		"prefix": "setfire",
+		"body": "${1:ref}.set(${2:value}, ${0:/* onComplete */});\n",
+		"description": "write at ref",
+		"scope": "source.js"
+	},
+	"setPriorityfire": {
+		"prefix": "setPriorityfire",
+		"body": "${1:ref}.setPriority(${2:priority /* number or string */}, ${0: /* onComplete */});\n",
+		"description": "set priority for data",
+		"scope": "source.js"
+	},
+	"setWithfire": {
+		"prefix": "setWithfire",
+		"body": "${1:ref}.setWithPriority(${2: value }, ${3: priority /* string or number */}, ${0: /* onComplete */});\n",
+		"description": "write w/ priority",
+		"scope": "source.js"
+	},
+	"startatfire": {
+		"prefix": "startatfire",
+		"body": "startAt(${2:/* start point */})",
+		"description": "limit a ref",
+		"scope": "source.js"
+	},
+	"transactionfire": {
+		"prefix": "transactionfire",
+		"body": "${1:ref}.transaction(${2: updateFunction}, ${3:/* onComplete */}, ${0:/* applyLocally*/});\n",
+		"description": "atomic modification",
+		"scope": "source.js"
+	},
+	"unauthfire": {
+		"prefix": "unauthfire",
+		"body": "${0:dataRef}.unauth();",
+		"description": "Unauthenticate client",
+		"scope": "source.js"
+	},
+	"updatefire": {
+		"prefix": "updatefire",
+		"body": "${1:ref}.update(${2: value} , ${0:/* onComplete */});",
+		"description": "update at ref",
+		"scope": "source.js"
+	},
+	"valfire": {
+		"prefix": "valfire",
+		"body": "${1:dataSnapshot}.val();\n",
+		"description": "JS value of snapshot",
+		"scope": "source.js"
+	}
+}
