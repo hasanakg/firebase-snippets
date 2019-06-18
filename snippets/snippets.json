@@ -31,7 +31,7 @@
 	},
 	"changeemailfire": {
 		"prefix": "changeemailfire",
-		"body": "${1:ref}.changePassword({\n  newEmail: ${2:\"bobtony@firebase.com\"},\n  oldEmail: ${3:\"bobtony@google.com\"},\n  Password: ${4:\"correcthorsebatterystaple\"}\n}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_PASSWORD\":\n        console.log(\"The specified user account password is incorrect.\");\n        break;\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      default:\n        console.log(\"Error creating user:\", error);\n    }\n  } else {\n    console.log(\"User email changed successfully!\");\n    ${5: // success}\n  }\n  });",
+		"body": "${1:ref}.changeEmail({\n  newEmail: ${2:\"bobtony@firebase.com\"},\n  oldEmail: ${3:\"bobtony@google.com\"},\n  Password: ${4:\"correcthorsebatterystaple\"}\n}, function(error) {\n  if (error) {\n    switch (error.code) {\n      case \"INVALID_PASSWORD\":\n        console.log(\"The specified user account password is incorrect.\");\n        break;\n      case \"INVALID_USER\":\n        console.log(\"The specified user account does not exist.\");\n        break;\n      default:\n        console.log(\"Error creating user:\", error);\n    }\n  } else {\n    console.log(\"User email changed successfully!\");\n    ${5: // success}\n  }\n  });",
 		"description": "change email",
 		"scope": "source.js"
 	},
